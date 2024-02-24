@@ -6,10 +6,10 @@ const getContent = (element: Element): string => {
 
 const app = new Hono()
 
-app.get('/ogp', async (c) => {
-  const siteUrl = c.req.query('site_url');
+app.get('/api/ogp', async (c) => {
+  const siteUrl = c.req.query('url');
   if (!siteUrl) {
-    return c.body('site_url query is required', 400)
+    return c.body('url query is required', 400)
   }
 
   const sitePage = await fetch(decodeURIComponent(siteUrl));
